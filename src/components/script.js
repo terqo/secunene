@@ -36,7 +36,7 @@ let currentMount = null
 
     //loader
     const gltfLoader = new GLTFLoader()
-    gltfLoader.load('./3d/phone.glb',
+    gltfLoader.load('./3d/pantalones.glb',
         (gltf)=> {
             scene.add(gltf.scene)
         }
