@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 
 let currentMount = null
-var model;
+
       //scene
       const scene = new THREE.Scene()
       const camera = new THREE.PerspectiveCamera(
@@ -35,15 +35,15 @@ var model;
     window.addEventListener('resize', resize)
 
 
-    const clock = new THREE.Clock()
+    //const clock = new THREE.Clock()
 
     //loader
     const gltfLoader = new GLTFLoader()
     gltfLoader.load('./3d/ted.glb',
         (gltf)=> {
           const model = gltf.scene;
-          const elapsedtime = clock.getElapsedTime();
-          model.rotation.y = elapsedtime;
+          //const elapsedtime = clock.getElapsedTime();
+          //model.rotation.y = elapsedtime;
           scene.add(model)
         },
         ()=>{
@@ -56,17 +56,6 @@ var model;
     )
 
     //lights
-    const AO = new THREE.AmbientLight('white', 0.8)
-    //scene.add(AO)
-    
-    //const pointLight = new THREE.PointLight('blue', 12)
-    //pointLight.position.y = 5
-    //scene.add(pointLight) 
-    
-    const directional = new THREE.DirectionalLight('white',1.3)
-    directional.position.set(5,10,10)
-    scene.add(directional)
-
     const enviromentMap = new THREE.CubeTextureLoader()
     const envMap = enviromentMap.load([
       './envmp/px.png',
@@ -76,9 +65,14 @@ var model;
       './envmp/pz.png',
       './envmp/nz.png',
     ])
-    //scene.environment = envMap
+    scene.environment = envMap
     //scene.background = envMap
 
+    const directional = new THREE.DirectionalLight('purple',1.2)
+    directional.position.set(-20,0,30)
+    scene.add(directional)
+
+   
     //render the scene 
     const animate = () => {
       controls.update()
@@ -98,7 +92,7 @@ var model;
 
      //clean Up Scene
     export const cleanupScene = () => {
-        renderer.dispose()
+        scene.dispose()
         currentMount.removeChild(renderer.domElement)
         
     }
