@@ -76,7 +76,7 @@ var model;
       './envmp/pz.png',
       './envmp/nz.png',
     ])
-    scene.environment = envMap
+    //scene.environment = envMap
     //scene.background = envMap
 
     //render the scene 
