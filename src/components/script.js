@@ -13,7 +13,7 @@ let currentMount = null
         1000
     )
 
-    camera.position.z = 6
+    camera.position.z = 3
     scene.add(camera)
     
     //renderer
@@ -34,11 +34,23 @@ let currentMount = null
     }   
     window.addEventListener('resize', resize)
 
+
+    const clock = new THREE.Clock()
+
     //loader
     const gltfLoader = new GLTFLoader()
-    gltfLoader.load('./3d/pantalones.glb',
+    gltfLoader.load('./3d/ted.glb',
         (gltf)=> {
-            scene.add(gltf.scene)
+          const model = gltf.scene;
+          const elapsedtime = clock.getElapsedTime();
+          model.rotation.y = elapsedtime;
+          scene.add(model)
+        },
+        ()=>{
+          
+        },
+        ()=>{
+          
         }
         
     )
@@ -51,9 +63,9 @@ let currentMount = null
     //pointLight.position.y = 5
     //scene.add(pointLight) 
     
-    const directional = new THREE.DirectionalLight('green',1.3)
-    directional.position.set(7,7,7)
-    //scene.add(directional)
+    const directional = new THREE.DirectionalLight('white',1.3)
+    directional.position.set(10,10,10)
+    scene.add(directional)
 
     const enviromentMap = new THREE.CubeTextureLoader()
     const envMap = enviromentMap.load([
