@@ -57,14 +57,14 @@ var model;
 
     //lights
     const AO = new THREE.AmbientLight('white', 0.8)
-    scene.add(AO)
+    //scene.add(AO)
     
     //const pointLight = new THREE.PointLight('blue', 12)
     //pointLight.position.y = 5
     //scene.add(pointLight) 
     
     const directional = new THREE.DirectionalLight('white',1.3)
-    directional.position.set(10,10,10)
+    directional.position.set(5,10,10)
     scene.add(directional)
 
     const enviromentMap = new THREE.CubeTextureLoader()
