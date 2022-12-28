@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 
 let currentMount = null
-
+var model;
       //scene
       const scene = new THREE.Scene()
       const camera = new THREE.PerspectiveCamera(
