@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+//import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 
@@ -37,10 +37,11 @@ let currentMount = null
 
 
     //const clock = new THREE.Clock()
-    
+    //load model3d
+    const loadingManager = new THREE.LoadingManager()
  
     //loader
-    const gltfLoader = new GLTFLoader()
+    const gltfLoader = new GLTFLoader(loadingManager)
     const dracoLoader = new DRACOLoader()
     dracoLoader.setDecoderPath( '/draco/' );
 
