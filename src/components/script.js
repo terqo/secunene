@@ -14,7 +14,7 @@ let currentMount = null
         1000
     )
 
-    camera.position.z = 1
+    camera.position.z = 8
     scene.add(camera)
     
     //renderer
@@ -37,7 +37,8 @@ let currentMount = null
 
 
     //const clock = new THREE.Clock()
-
+    
+ 
     //loader
     const gltfLoader = new GLTFLoader()
     const dracoLoader = new DRACOLoader()
@@ -49,12 +50,50 @@ let currentMount = null
           const model = gltf.scene;
           //const elapsedtime = clock.getElapsedTime();
           //model.rotation.y = elapsedtime;
-
+          var plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), -2);
+          var raycaster = new THREE.Raycaster();
+          var mouse = new THREE.Vector2();
+          var pointOfIntersection = new THREE.Vector3();
+          currentMount.addEventListener("mousemove", onMouseMove, false);
+          
+          function onMouseMove(event){
+            mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+            mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+            raycaster.ray.intersectPlane(plane, pointOfIntersection);
+            model.lookAt(pointOfIntersection);
+          }
+          model.scale.set(5,5,5)
           //modify materials using .traverse().
           model.traverse((node) => {
             if (!node.isMesh) return;
             node.material.wireframe = true;
           });
+          scene.add(model)
+        },
+        ()=>{
+          
+        },
+        ()=>{
+          
+        }
+        
+    )
+
+    const gltfLoader2 = new GLTFLoader()
+    const dracoLoader2 = new DRACOLoader()
+    dracoLoader2.setDecoderPath( '/draco/' );
+
+    gltfLoader2.setDRACOLoader(dracoLoader2)
+    gltfLoader2.load('./model/secunene.glb',
+        (gltf2)=> {
+          const model = gltf2.scene;
+          //const elapsedtime = clock.getElapsedTime();
+          //model.rotation.y = elapsedtime;
+          model.position.x =0
+          model.position.y =0.2
+          model.scale.set(0.1,0.1,0.1)
+          //modify materials using .traverse().
           scene.add(model)
         },
         ()=>{
@@ -89,6 +128,7 @@ let currentMount = null
       controls.update()
       renderer.render(scene, camera)
       requestAnimationFrame(animate)
+
 
     }
     animate()

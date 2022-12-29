@@ -9,7 +9,6 @@ const Scene = () => {
     //init Scene
     mountScene(mountRef)
     
-
     //clean up scene 
     return () => {
       cleanupScene()
