@@ -22,9 +22,9 @@ let currentMount = null
 
 
     //Controls
-    const controls = new OrbitControls(camera, renderer.domElement)
+    //const controls = new OrbitControls(camera, renderer.domElement)
     //controls.target = new THREE.Vector3(3,3,3)
-    controls.enableDamping = true 
+    //controls.enableDamping = true 
     
     //resize
     const resize = () => {
@@ -125,7 +125,7 @@ let currentMount = null
    
     //render the scene 
     const animate = () => {
-      controls.update()
+      //controls.update()
       renderer.render(scene, camera)
       requestAnimationFrame(animate)
 
