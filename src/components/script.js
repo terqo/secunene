@@ -14,7 +14,7 @@ let currentMount = null
         1000
     )
 
-    camera.position.z = 3
+    camera.position.z = 1
     scene.add(camera)
     
     //renderer
@@ -49,6 +49,12 @@ let currentMount = null
           const model = gltf.scene;
           //const elapsedtime = clock.getElapsedTime();
           //model.rotation.y = elapsedtime;
+
+          //modify materials using .traverse().
+          model.traverse((node) => {
+            if (!node.isMesh) return;
+            node.material.wireframe = true;
+          });
           scene.add(model)
         },
         ()=>{
