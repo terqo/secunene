@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 
 let currentMount = null
 
@@ -39,7 +40,11 @@ let currentMount = null
 
     //loader
     const gltfLoader = new GLTFLoader()
-    gltfLoader.load('./3d/ted.glb',
+    const dracoLoader = new DRACOLoader()
+    dracoLoader.setDecoderPath( '/draco/' );
+
+    gltfLoader.setDRACOLoader(dracoLoader)
+    gltfLoader.load('./model/ted.glb',
         (gltf)=> {
           const model = gltf.scene;
           //const elapsedtime = clock.getElapsedTime();
@@ -92,7 +97,7 @@ let currentMount = null
 
      //clean Up Scene
     export const cleanupScene = () => {
-        scene.dispose()
+        renderer.dispose()
         currentMount.removeChild(renderer.domElement)
         
     }
