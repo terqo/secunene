@@ -23,6 +23,10 @@ const Scene = () => {
       style={{width: '100%', height:'100vh'}}
     >
 
+    <div className="progress">
+      <label for="progress-bar">Loading...</label>
+      <progress id='progress-bar' value='0' max='100' ></progress>
+    </div>
     </div>
   )
 }

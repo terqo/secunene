@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-//import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 
@@ -14,17 +14,17 @@ let currentMount = null
         1000
     )
 
-    camera.position.z = 8
+    camera.position.z = 6
     scene.add(camera)
     
     //renderer
     const renderer = new THREE.WebGLRenderer()
-
+    
 
     //Controls
-    //const controls = new OrbitControls(camera, renderer.domElement)
+    const controls = new OrbitControls(camera, renderer.domElement)
     //controls.target = new THREE.Vector3(3,3,3)
-    //controls.enableDamping = true 
+    controls.enableDamping = true 
     
     //resize
     const resize = () => {
@@ -38,7 +38,24 @@ let currentMount = null
 
     //const clock = new THREE.Clock()
     //load model3d
-    const loadingManager = new THREE.LoadingManager()
+    const loadingManager = new THREE.LoadingManager(
+      ()=>{
+        const progressBarContainer = document.querySelector('.progress')
+        progressBarContainer.style.display = 'none'
+        console.log('Model cargado')
+      },
+      (itemUrl,
+        itemsToLoad,
+        itemsLoaded
+        )=>{
+        const progressBar = document.getElementById('progress-bar')
+        progressBar.value = (itemsLoaded/itemsLoaded)*100;
+        console.log((itemsToLoad/itemsLoaded)*100)
+      },
+      ()=>{
+        console.error('hubo un problema al cargar')
+      }
+    )
  
     //loader
     const gltfLoader = new GLTFLoader(loadingManager)
@@ -126,7 +143,7 @@ let currentMount = null
    
     //render the scene 
     const animate = () => {
-      //controls.update()
+      controls.update()
       renderer.render(scene, camera)
       requestAnimationFrame(animate)
 
@@ -148,4 +165,5 @@ let currentMount = null
         currentMount.removeChild(renderer.domElement)
         
     }
+    
     console.log('limpiado')
