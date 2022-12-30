@@ -25,7 +25,7 @@ let currentMount = null
     const controls = new OrbitControls(camera, renderer.domElement)
     //controls.target = new THREE.Vector3(3,3,3)
     controls.enableDamping = true 
-    
+    controls.enableRotate = false
     //resize
     const resize = () => {
       renderer.setSize(currentMount.clientWidth,
@@ -63,7 +63,7 @@ let currentMount = null
     dracoLoader.setDecoderPath( '/draco/' );
 
     gltfLoader.setDRACOLoader(dracoLoader)
-    gltfLoader.load('./model/ted.glb',
+    gltfLoader.load('./model/teddy.glb',
         (gltf)=> {
           const model = gltf.scene;
           //const elapsedtime = clock.getElapsedTime();
@@ -109,7 +109,7 @@ let currentMount = null
           //const elapsedtime = clock.getElapsedTime();
           //model.rotation.y = elapsedtime;
           model.position.x =0
-          model.position.y =0.2
+          model.position.y =-0.1
           model.scale.set(0.1,0.1,0.1)
           //modify materials using .traverse().
           scene.add(model)
