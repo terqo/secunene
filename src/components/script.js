@@ -14,7 +14,7 @@ let currentMount = null
         1000
     )
 
-    camera.position.z = 6
+    camera.position.z = 3
     scene.add(camera)
     
     //renderer
