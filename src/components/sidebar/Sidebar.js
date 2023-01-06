@@ -2,8 +2,12 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import './Sidebar.css';
 
-export default () => {
+// eslint-disable-next-line
+
+
+ const props = () => {
   return (
+
     <Menu>
       <a className="menu-item" href="/">
         home
@@ -20,3 +24,4 @@ export default () => {
     </Menu>
   );
 };
+export default props;
