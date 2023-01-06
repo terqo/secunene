@@ -166,4 +166,6 @@ let currentMount = null
         
     }
     
-    console.log('limpiado')
+    console.log('LISTO')
+    alert('nena o nene ??')
+    
