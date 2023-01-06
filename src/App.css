@@ -37,9 +37,12 @@ label{
   transform: rotate(360deg); 
 }
 }
+.nene{
+  color: rgb(143, 250, 143);
+}
 .contenedor{
   position: absolute;
-  margin: 10px;
+  margin: 40px;
   padding: 20px;
 
 }

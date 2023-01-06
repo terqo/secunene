@@ -165,7 +165,12 @@ let currentMount = null
         currentMount.removeChild(renderer.domElement)
         
     }
-    
-    console.log('LISTO')
-    alert('nena o nene ??')
-    
+
+    var secu = window.confirm("secunene?") 
+    if (secu === true){
+      window.alert('okey nene')
+      
+    }else{
+      const secu = document.getElementById('nene')
+      secu.textContent = 'Secunena'
+    }

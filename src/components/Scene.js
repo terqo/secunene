@@ -30,28 +30,7 @@ const Scene = () => {
     </div>
 
     <div className='contenedor'>
-      <h1>hola </h1>  <h1 className='nene'>nene</h1>
-      
-
-      
-      <section>
-        <div >
-          <ul>
-            <li> 
-              
-            </li>
-            <br></br>
-            <li>
-              <p></p>
-            </li>
-            <br></br>
-            <li>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-      </section>
-      
+      <h1 id='nene'>Secunene</h1>
 
     </div>
     
