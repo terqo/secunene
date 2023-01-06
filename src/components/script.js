@@ -2,6 +2,12 @@ import * as THREE from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
+import { frases } from './quotes/quotes'
+
+//load frases
+export function quotes(){
+  document.getElementById('quotesDisplay').value = frases[Math.floor(Math.random() * frases.length)]      
+}
 
 let currentMount = null
 
@@ -166,11 +172,3 @@ let currentMount = null
         
     }
 
-    var secu = window.confirm("secunene?") 
-    if (secu === true){
-      window.alert('okey nene')
-      
-    }else{
-      const secu = document.getElementById('nene')
-      secu.textContent = 'Secunena'
-    }

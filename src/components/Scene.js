@@ -30,8 +30,8 @@ const Scene = () => {
     </div>
 
     <div className='contenedor'>
-      <h1 id='nene'>Secunene</h1>
-
+      <h1 id='quotesDisplay'>"If you died right now, how would you feel about your life?" —Tyler Durden</h1>
+      <button onClick={() => alert("Hello!")}>Quotes</button>
     </div>
     
     </div>
