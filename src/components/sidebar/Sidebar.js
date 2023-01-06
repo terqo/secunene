@@ -19,7 +19,7 @@ import './Sidebar.css';
         instagram
       </a>
       <a href="https://twitter.com/terqoo" target="_blank" rel="noopener noreferrer">
-        creador uwu
+        admin uwu
       </a>
     </Menu>
   );
