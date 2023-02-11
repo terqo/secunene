@@ -64,7 +64,7 @@ let currentMount = null
     dracoLoader.setDecoderPath( '/draco/' );
 
     gltfLoader.setDRACOLoader(dracoLoader)
-    gltfLoader.load('./model/ted.glb',
+    gltfLoader.load('./model/ted2.glb',
         (gltf)=> {
           const model = gltf.scene;
           //const elapsedtime = clock.getElapsedTime();
