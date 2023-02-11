@@ -1,3 +1,7 @@
+YOU CAN SEE HOW THE WEBSITE WORKS BY THE LINK ON THE RIGHT OR IN THE REPOSITORY LINK  
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
