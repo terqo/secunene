@@ -64,7 +64,7 @@ let currentMount = null
     dracoLoader.setDecoderPath( '/draco/' );
 
     gltfLoader.setDRACOLoader(dracoLoader)
-    gltfLoader.load('./model/ted.glb',
+    gltfLoader.load('./model/secunenito.glb',
         (gltf)=> {
           const model = gltf.scene;
           //const elapsedtime = clock.getElapsedTime();
@@ -82,7 +82,7 @@ let currentMount = null
             raycaster.ray.intersectPlane(plane, pointOfIntersection);
             model.lookAt(pointOfIntersection);
           }
-          model.scale.set(5,5,5)
+          model.scale.set(3,3,3)
           //modify materials using .traverse().
           model.traverse((node) => {
             if (!node.isMesh) return;
@@ -104,14 +104,14 @@ let currentMount = null
     dracoLoader2.setDecoderPath( '/draco/' );
 
     gltfLoader2.setDRACOLoader(dracoLoader2)
-    gltfLoader2.load('./model/secunene.glb',
+    gltfLoader2.load('./model/secu2.glb',
         (gltf2)=> {
           const model = gltf2.scene;
           //const elapsedtime = clock.getElapsedTime();
           //model.rotation.y = elapsedtime;
           model.position.x =0
-          model.position.y =-0.1
-          model.scale.set(0.1,0.1,0.1)
+          model.position.y =0.1
+          model.scale.set(0.5,0.5,0.5)
           //modify materials using .traverse().
           scene.add(model)
         },
